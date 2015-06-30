@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>MongoDb Experiments</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link href="bootstrap334/css/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+
+	<div class="container-fluid">
+		<div class="jumbotron">
+			<h1>MongoDb Experiments</h1>
+		</div>
+
+		<div class="col-md-6">
+			<h2>Customers</h2>
+			<table>
+				<tr>
+					<th>ID</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+				</tr>
+
+				<tr th:each="cust : ${customers}">
+					<td th:text="${cust.id}">id</td>
+					<td th:text="${cust.firstName}">billy</td>
+					<td th:text="${cust.lastName}">test</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<h2>Add new customer</h2>
+		<form action="/addNewCustomer" method="post">
+			<p>ID: <input type="text" name="id" /></p>
+			<p>First Name: <input type="text" name="firstName" /></p>
+			<p>Last Name: <input type="text" name="lastName" /></p>
+		
+			<input type="submit" value="Add" />
+
+		</form>
+	</div>
+	
+    <div class="container-fluid">
+		<h2>Update customer</h2>
+		<form action="/updateCustomer" method="post">
+			<p>ID: <input type="text" name="id" /></p>
+			<p>First Name: <input type="text" name="firstName" /></p>
+			<p>Last Name: <input type="text" name="lastName" /></p>
+		
+			<input type="submit" value="Update" />
+
+		</form>
+	</div>
+	
+	<div class="container-fluid">
+		<h2>View customer events</h2>
+		<form action="/customer-events" method="post">
+			<p>ID: <input type="text" name="id" /></p>
+			<input type="submit" value="View" />
+		</form>
+	</div>
+	
+	
+	
+	
+	<div class="container-fluid">
+		<h2>Load test data</h2>
+		<form action="/loadTestCustomers">
+			<input type="submit" value="Load" />
+		</form>
+	</div>
+	
+</body>
+</html>

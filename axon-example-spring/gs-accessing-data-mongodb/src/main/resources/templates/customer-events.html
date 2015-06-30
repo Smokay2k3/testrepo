@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>MongoDb Experiments</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link href="bootstrap334/css/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+
+	<div class="container-fluid">
+		<div class="jumbotron">
+			<h1>Customer Events</h1>
+		</div>
+		
+		<div class="col-md-6">
+			<h2>Events</h2>
+			<table>
+				<tr>
+					<th>Seq No</th>
+					<th>FirstName</th>
+					<th>Surname</th>
+					<th>Event Type</th>
+					<th>Timestamp</th>
+				</tr>
+
+				<tr th:each="eventMessage : ${eventmessages}">
+					<td th:text="${eventMessage.sequenceNumber}">sequenceNumber</td>
+					<td th:text="${eventMessage.payload.firstName}">firstname</td>
+					<td th:text="${eventMessage.payload.surname}">surname</td>
+					<td th:text="${eventMessage.payloadType.simpleName}">event type</td>
+					<td th:text="${eventMessage.timestamp}">timestamp</td>
+					
+            
+            
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>
